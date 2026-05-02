@@ -1,5 +1,5 @@
 # --- 追加スパイス：多宇宙同時表示（Multi-radial Representation） ---
-
+using Statistics
 # 1. 宇宙の並列化（1.0/phi の精度でズレた宇宙たち）
 universes = [Species("Universe_$i", [1.0, 2.0, 3.0] .+ randn()*0.01) for i in 1:10]
 
