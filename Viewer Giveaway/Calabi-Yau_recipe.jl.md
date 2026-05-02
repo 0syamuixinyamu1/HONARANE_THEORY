@@ -1,5 +1,5 @@
 using Plots, StaticArrays
-
+gr()
 # カラビ・ヤウ断面を生成する写像
 function calabi_yau_projection(z1, z2; k=5)
     # フェルマー超曲面の数理的制約に基づき、
@@ -23,10 +23,11 @@ Z = [p[3] for p in points]
 println("🌶️ スパイス投入：10次元宇宙を3Dプレートに盛り付けていますわ。はい。")
 
 # 宇宙の可視化（散布図で特異点のオーラを表現）
-universe_plot = scatter3d(
+universe_plot = scatter(
     X, Y, Z,
-    markersize = 1.5,           # 粒の細かさ
-    markercolor = :plasma,      # 宇宙際感のあるプラズマカラー
+    markersize = 1.5,　　　　　　# 粒の細かさ
+    marker_z = Z,　　　　　　　　# 宇宙際感のあるプラズマカラー
+　　cgrad = :rainbow,      　　　
     markerstrokewidth = 0,      # 枠線を消して滑らかに
     legend = false,             # 「まあ、凡例はええわ」で非表示
     title = "Calabi-Yau Cooking: Multiradial 3D Plate",
